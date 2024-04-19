@@ -1,0 +1,19 @@
+<!-- 
+  Definimos la vista de un solo articulo con el componente ion-card
+ -->
+ <ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>{{articulos.source.name}}</ion-card-subtitle>
+    <ion-card-title>{{articulos.title}}</ion-card-title>
+  </ion-card-header>
+  <ion-img *ngIf="articulos.urlToImage" [src]="articulos.urlToImage"></ion-img>
+  <ion-card-content>
+    <p>
+      {{articulos.description}}
+    </p>   
+  </ion-card-content>
+  <ion-item>
+    <ion-icon slot="end" name="trash-outline" (click)="onClick()"></ion-icon>
+    <ion-label><a [href]="articulos.url">Leer</a></ion-label>
+  </ion-item>
+</ion-card>

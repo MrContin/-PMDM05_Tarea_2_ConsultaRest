@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lectura De Articulos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item *ngIf="gestionNoticias.getNoticias().length==0" color="warning">
+    No hay Articulos seleccionados para leer.
+  </ion-item>
+  <!-- Se visualiza la lista de los articulos para leer, que se obtienen del servicio que las gestiona -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size=12 sizeLg=3 sizeMd=4 sizeSm=6 sizeXs=12 *ngFor="let articulo of gestionNoticias.getNoticias()">
+        <!--ngFor es una directiva estructural que permite iterar sobre una lista de elementos
+            se establece una variable local llamada articulo que contiene cada elemento de la lista devuelta por la función 
+        -->
+        <app-articulos [articulos]="articulo"></app-articulos><!--Llamada al componente articulos-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
